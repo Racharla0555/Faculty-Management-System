@@ -1,0 +1,72 @@
+{%extends 'home.html'%}
+{%block main%}
+<!DOCTYPE html>
+<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    /* form
+    {
+        background-color:rgb(94, 216, 222); 
+        padding: 15px 32px;
+        font-size: 20px;  
+          
+    } */
+    .container11
+        {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+        }
+        .container22
+        {
+            padding: 12px;
+            border: 2px solid black;
+            border-radius: 8px;
+            background-color: #fafafa;
+            width: 350px;
+        }
+        .container33
+        {
+            margin-top: 10px;
+            background-color: #346ae2;
+            color:#fafafa;
+            border-radius: 3px;
+            border: 1px solid black;
+            margin-left: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <label class="a1"><b>Faculty</b> Management System</label>
+    <div class="container11">
+        <div class="container22">
+    <form method="post" enctype="multipart/form-data">
+        {%csrf_token%} 
+        {%for field in form%}
+                <div>
+                    <label >{{field.label}}:</label>
+                <label >{{field}}</label><br><br>
+                {%for error in field.errors%}
+                  <font color="red">⦿{{error}}</font> <br>
+                 
+                   {%endfor%}
+                </div>
+                {%endfor%}
+        <button type="submit" class="container33">Register</button>
+    
+    </form>    
+        </div>
+    </div>
+</body>
+
+</html>
+{%endblock%}
